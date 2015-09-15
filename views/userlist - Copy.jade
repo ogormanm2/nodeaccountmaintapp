@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    h1.
+        User List
+    table(border=1)
+      thead
+        tr
+          th Username
+          th Fullname
+          th Email
+          th(colspan=2) Action
+      tbody
+        each user, i in userlist
+            tr
+              td
+                a(href="mailto:#{user.email}")= user.username
+              td= user.name
+              td= user.email  
+              td  
+                form#formChangeUser(name="chguser",method="post",action="/chguser")
+                  input#inputUserName(type="hidden", placeholder="username", name="username" value="#{user.username}")
+                  input#inputName(type="hidden", placeholder="name", name="name" value="#{user.name}")
+                  input#inputEmail(type="hidden", placeholder="email", name="email" value="#{user.email}")
+                  button#btnSubmit(type="submit") Update
+              td  
+                form#formDelUser(name="deluser",method="post",action="/deluser")
+                  input#inputUserName(type="hidden", placeholder="username", name="username" value="#{user.username}")
+                  button#btnSubmit(type="submit") Delete
+         tr
+           td
+             form#formAddUser(name="adduser",method="post",action="/adduser")
+               input#inputUserName(type="text", placeholder="username", name="username")
+               td
+                 input#inputUserEmail(type="text", placeholder="name", name="name")
+               td
+                 input#inputName(type="text", placeholder="useremail", name="useremail")
+               td(colspan=2,align="center")
+                 button#btnSubmit(type="submit") Add         

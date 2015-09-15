@@ -1,0 +1,1 @@
+mongoimport -d search -c users --type csv --file users.csv --headerline

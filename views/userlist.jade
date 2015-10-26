@@ -3,13 +3,13 @@ extends layout
 block content
   h1.
     User List
-  table(border=1)
+  table(border=0)
     thead
       tr
-        th Username
-        th Fullname
-        th Email
-        th(colspan=2) Action
+        th(bgcolor="lightgray") Username
+        th(bgcolor="lightgray") Fullname
+        th(bgcolor="lightgray") Email
+        th(colspan=2, bgcolor="lightgray") Action
       tbody
         each user, i in userlist
           tr
